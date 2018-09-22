@@ -16,9 +16,9 @@ public class HelloController {
 		return "hello";
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/index2")
 	public String homePage() {
-		return "index";
+		return "index2";
 	}
 
 }

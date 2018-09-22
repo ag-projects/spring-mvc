@@ -4,10 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <title>Index Home Page</title>
 </head>
 <body>
-	<h2>Home Page: List of users in the project</h2>
+	<h2>Welcome to Spring page</h2>
+	<h4>Please introduce yourself</h4>
+	<form action="hello">
+		<input type="text" name="name" placeholder="Enter your name"></input>
+		<input type="submit" value="Submit"></input>
+	</input>
+	</form>
 </body>
 </html>
