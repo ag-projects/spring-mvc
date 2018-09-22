@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h2>First JSP page in spring MVC application</h2>
+	<h2>Hello ${formName}</h2>
 </body>
 </html>

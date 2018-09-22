@@ -8,5 +8,11 @@
 </head>
 <body>
 	<h2>Welcome to Spring page</h2>
+	<h4>Please introduce yourself</h4>
+	<form action="hello">
+		<input type="text" name="name" placeholder="Enter your name"></input>
+		<input type="submit" value="Submit"></input>
+	</input>
+	</form>
 </body>
 </html>
