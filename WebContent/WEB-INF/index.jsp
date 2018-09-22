@@ -12,6 +12,11 @@
 <body>
 	<h2>Home Page: List of users in the project</h2>
 	<br />
+	
+	<a href="${pageContext.request.contextPath}/addUser">Add user</a>
+	
+	<p/>
+	
 	<table border="1" align="left">
 		<tr>
 			<th>User Id</th>

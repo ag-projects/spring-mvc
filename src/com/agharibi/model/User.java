@@ -1,8 +1,12 @@
 package com.agharibi.model;
 
+import org.hibernate.validator.constraints.Email;
+
 public class User {
 	private int userId;
 	private String name;
+	
+	@Email
 	private String email;
 	
 	public User() {
