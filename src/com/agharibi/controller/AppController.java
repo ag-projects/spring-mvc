@@ -19,35 +19,22 @@ import com.agharibi.model.User;
 @Controller
 public class AppController {
 
-	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-	AppDaoImpl appDao = context.getBean("DAOBean", AppDaoImpl.class);
-	
 	@RequestMapping("/")
 	public ModelAndView homePage() {
-		List<User> users = new ArrayList<>();
-		users = appDao.listUsers();
-		System.out.println(users);
-
-		ModelAndView model = new ModelAndView("index");
-		model.addObject("users", users);
-		context.close();
-	
+		ModelAndView model = new ModelAndView("home");	
 		return model;
 	}
 	
-	@RequestMapping("/addUser")
-	public String addUser(Model model, @Valid User user, BindingResult result) {
-
-		if (result.hasErrors()) {
-			model.addAttribute("user", user);
-			return "addUser";
-		} else if (user.getName() != null && user.getName() != null) {
-			this.appDao.addUser(user);
-			return "forward:/";
-		} else {
-			System.out.println("Loading form data");
-			return "addUser";
-		}
+	@RequestMapping("/admin")
+	public ModelAndView admin() {
+		ModelAndView model = new ModelAndView("admin");	
+		return model;
+	}
+	
+	@RequestMapping("/user")
+	public ModelAndView user() {
+		ModelAndView model = new ModelAndView("user");	
+		return model;
 	}
 	
 }
