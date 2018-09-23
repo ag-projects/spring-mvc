@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <title>Login Page</title>
@@ -8,8 +9,13 @@
 	<hr />
 
 	<h3>Login with Username and Password</h3>
-	<form name='f' action='/spring-mvc/login' method='POST'>
+	<form name='f' action='${loginUrl}' method='POST'>
 		<table>
+		
+		<c:if test="${param.error != null}">
+			<span  style="color:red" >Invalid Credentials</span>
+		</c:if>
+		
 			<tr>
 				<td>User:</td>
 				<td><input type='text' name='username' value=''></td>
