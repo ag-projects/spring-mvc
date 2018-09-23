@@ -26,16 +26,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
-		.antMatchers("/user").access("hasRole('ROLE_USER')")
-		.antMatchers("/403").access("permitAll");
+		    .antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
+		    .antMatchers("/user").access("hasRole('ROLE_USER')")
+		    .antMatchers("/403").access("permitAll");
 
-		http.formLogin().loginPage("/login").failureUrl("/login?error");
+		http.formLogin().loginPage("/login")
+		    .failureUrl("/login?error");
 
-		http.rememberMe().rememberMeParameter("remember-me").tokenValiditySeconds(50000).key("anyKey")
-				.tokenRepository(tokenRepository());
+		http.rememberMe().rememberMeParameter("remember-me")
+		    .tokenValiditySeconds(50000).key("anyKey")
+			.tokenRepository(tokenRepository());
 		
 		http.exceptionHandling().accessDeniedPage("/403");
+		
+		http.logout().logoutSuccessUrl("/").logoutUrl("/")
+		    .invalidateHttpSession(Boolean.TRUE);
 	}
 
 	private PersistentTokenRepository tokenRepository() {
