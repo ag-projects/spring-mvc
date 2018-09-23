@@ -19,6 +19,10 @@
 						path="email"></form:errors></td>
 			</tr>
 			<tr>
+				<td>Password : <form:input path="password" type="password"/> <form:errors
+						path="password"></form:errors></td>
+			</tr>
+			<tr>
 				<td><input type="submit" value="Submit"></td>
 			</tr>
 		</form:form>
