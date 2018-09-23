@@ -17,7 +17,10 @@
 		</security:authentication-provider>
 	</security:authentication-manager>
 	<security:http use-expressions="true">
+		<security:intercept-url pattern="/" access="permitAll" />
+		<security:intercept-url pattern="/addUser" access="isAuthenticated()" />
 		<security:intercept-url pattern="/**" access="denyAll" />
+		
 		<security:form-login />
 	</security:http>
 </beans>
