@@ -37,7 +37,7 @@ public class AppDaoImpl implements AppDao {
 			PreparedStatement ps = conn.prepareStatement(SQL);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				User user = new User(rs.getInt("user_id"), rs.getString("name"), rs.getString("email"));
+				User user = new User(rs.getInt("user_id"), rs.getString("username"), rs.getString("email"));
 				users.add(user);
 			}
 			rs.close();

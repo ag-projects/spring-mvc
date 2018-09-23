@@ -8,12 +8,8 @@
 
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="armen" authorities="admin"
-					password="armen" />
-				<security:user name="sam" authorities="admin"
-					password="sam" />
-			</security:user-service>
+			
+		<security:jdbc-user-service data-source-ref="dataSource" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 	<security:http use-expressions="true">

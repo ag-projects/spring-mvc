@@ -11,7 +11,7 @@ import com.agharibi.dao.AppDaoImpl;
 @Configuration
 public class AppConfig {
 	
-	@Bean
+	@Bean(name="dataSource")
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
