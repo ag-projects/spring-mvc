@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.agharibi.model.User;
+import com.agharibi.service.PasswordEncodingService;
 
 @Component
 public class AppDaoImpl implements AppDao {
@@ -68,7 +69,7 @@ public class AppDaoImpl implements AppDao {
 			PreparedStatement ps = conn.prepareStatement(SQL);
 			ps.setString(1, user.getName());
 			ps.setString(2, user.getEmail());
-			ps.setString(3,  user.getPassword());
+			ps.setString(3, new PasswordEncodingService().passwordEncoder(user.getPassword()));
 			ps.execute();
 			
 			ps.close();
@@ -82,7 +83,4 @@ public class AppDaoImpl implements AppDao {
 			}
 		}
 	}
-
-	
-
 }
