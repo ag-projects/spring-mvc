@@ -7,7 +7,7 @@
 <hr/>Custom Login Form<hr/>
 
 	<h3>Login with Username and Password</h3>
-	<form name='f' action='/spring-mvc/login' method='POST'>
+	<form name='f' action='${loginUrl}' method='POST'>
 		<table>
 			<tr>
 				<td>User:</td>
