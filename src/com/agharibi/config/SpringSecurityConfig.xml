@@ -14,6 +14,7 @@
 	</security:authentication-manager>
 	<security:http use-expressions="true">
 		<security:intercept-url pattern="/" access="permitAll" />
+		<security:intercept-url pattern="/logout" access="permitAll" />
 		<security:intercept-url pattern="/files/**" access="permitAll" />
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/addUser" access="isAuthenticated()" />
@@ -23,5 +24,7 @@
 			authentication-failure-url="/login?error" />
 		<security:remember-me remember-me-parameter="remember-me"
 			key="randomKey" data-source-ref="dataSource" />
+		<security:logout invalidate-session="true"
+			logout-success-url="/" logout-url="/logout" />
 	</security:http>
 </beans>
