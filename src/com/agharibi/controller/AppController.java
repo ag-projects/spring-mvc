@@ -70,4 +70,9 @@ public class AppController {
 		return new ModelAndView("users");
 	}
 	
+	@RequestMapping("/403")
+	public ModelAndView page403() {
+		return new ModelAndView("page403");
+	}
+	
 }

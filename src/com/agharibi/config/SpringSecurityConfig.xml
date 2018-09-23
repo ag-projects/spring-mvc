@@ -21,7 +21,8 @@
 			access="hasRole('ADMIN')" />
 		<security:intercept-url pattern="/users"
 			access="hasAnyRole('USER','ADMIN')" />
-
+		<security:intercept-url pattern="/403"
+			access="permitAll" />
 		<security:intercept-url pattern="/logout"
 			access="permitAll" />
 		<security:intercept-url pattern="/files/**"
@@ -40,5 +41,6 @@
 			data-source-ref="dataSource" />
 		<security:logout invalidate-session="true"
 			logout-success-url="/" logout-url="/logout" />
+		<security:access-denied-handler error-page="/403" />
 	</security:http>
 </beans>
