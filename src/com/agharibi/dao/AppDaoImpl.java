@@ -19,6 +19,7 @@ import com.agharibi.service.PasswordEncodingService;
 public class AppDaoImpl implements AppDao {
 
 	private DataSource dataSource;
+	private static final int ENABLED = 1;
 	
 	public AppDaoImpl() {
 	}
@@ -29,7 +30,7 @@ public class AppDaoImpl implements AppDao {
 	
 	@Override
 	public List<User> listUsers() {
-		String SQL = "SELECT * FROM users order by user_id";
+		String SQL = "SELECT * FROM users order by user_id;";
 		List<User> users = new ArrayList<>();
 		Connection conn = null;
 		
@@ -62,14 +63,16 @@ public class AppDaoImpl implements AppDao {
 	@Override
 	public void addUser(User user) {
 		Connection conn = null;
-		String SQL = "INSERT INTO users (username, email, password) VALUES (?,?,?)";
+		String SQL = "INSERT INTO users (username, email, password, enabled) VALUES (?,?,?,?)";
 		
 		try {
 			conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(SQL);
+			
 			ps.setString(1, user.getName());
 			ps.setString(2, user.getEmail());
-			ps.setString(3, new PasswordEncodingService().passwordEncoder(user.getPassword()));
+			ps.setString(3, user.getPassword());
+			ps.setInt(4, ENABLED);
 			ps.execute();
 			
 			ps.close();
