@@ -60,4 +60,14 @@ public class AppController {
 		return new ModelAndView("logout");
 	}
 	
+	@RequestMapping("/admin")
+	public ModelAndView admin() {
+		return new ModelAndView("admin");
+	}
+	
+	@RequestMapping("/users")
+	public ModelAndView users() {
+		return new ModelAndView("users");
+	}
+	
 }
