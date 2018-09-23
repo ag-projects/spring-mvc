@@ -4,7 +4,9 @@
 <title>Login Page</title>
 </head>
 <body onload='document.f.username.focus();'>
-<hr/>Custom Login Form<hr/>
+	<hr />
+	Custom Login Form
+	<hr />
 
 	<h3>Login with Username and Password</h3>
 	<form name='f' action='${loginUrl}' method='POST'>
@@ -17,6 +19,12 @@
 				<td>Password:</td>
 				<td><input type='password' name='password' /></td>
 			</tr>
+
+			<tr>
+				<td>Remember Me:</td>
+				<td><input type='checkbox' name='remember-me' checked="checked" /></td>
+			</tr>
+
 			<tr>
 				<td colspan='2'><input name="submit" type="submit"
 					value="Login" /></td>
