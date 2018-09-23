@@ -37,4 +37,10 @@ public class AppController {
 		return model;
 	}
 	
+	@RequestMapping("/login")
+	public ModelAndView login() {
+		ModelAndView model = new ModelAndView("login");	
+		return model;
+	}
+	
 }
